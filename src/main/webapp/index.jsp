@@ -10,7 +10,7 @@
             padding-top: 100px;
         }
         h1 {
-            color: white;
+            color: Blue;
             font-size: 32px; /* Default size */
         }
         select {
