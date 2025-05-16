@@ -4,13 +4,13 @@
     <title>Hello World</title>
     <style>
         body {
-            background-color: #f0f8ff; /* Light blue background */
+            background-color: orange; /* Orange background */
             font-family: Arial, sans-serif;
             text-align: center;
             padding-top: 100px;
         }
         h1 {
-            color: #333;
+            color: Black;
         }
     </style>
 </head>
