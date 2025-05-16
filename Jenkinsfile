@@ -2,31 +2,26 @@ pipeline {
     agent any
 
     stages {
-	
-        stage('CLONE GITHUB CODE') {
+        stage('Clone SCM') {
             steps {
-                echo 'In this stage code will be clone'
-				git branch: 'main', url: 'https://github.com/devopstraininghub/mindcircuit15d.git'
-				
-				}
+                echo 'Cloning form GITHUB'
+			git branch: 'main', url: 'https://github.com/PrasadValour7/mindcircuit15d.git'
+            }
         }
 		
-        stage('BUILDING THE CODE') {
+		
+        stage('Build Artifact') {
             steps {
-                echo 'In this stage code will be build and mvn artifact will be generated'
-				sh 'mvn clean install '
-				
-            }
-        }		
+                echo 'Building project with Maven'
+				sh 'mvn clean install'	
 		
-        stage('DEPLOY TOMCAT') {
+            }
+        }
+        stage('Deploy Tomcat') {
             steps {
-                echo 'In this stage .war artiface will be deployed on to tomcat '
-				deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://54.91.227.106:8081/')], contextPath: 'devops-app', war: '**/*.war'
-				
+                echo 'Deploying Artifact to Tomcat webserver'
+				deploy adapters: [tomcat9(alternativeDeploymentContext: '', credentialsId: 'tomcat', path: '', url: 'http://ec2-52-201-235-232.compute-1.amazonaws.com:8081/')], contextPath: 'mcapp', war: '**/*.war'
             }
-        }		
-		
-		
+        }
     }
 }
