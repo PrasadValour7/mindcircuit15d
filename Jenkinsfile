@@ -19,7 +19,7 @@ pipeline {
             }
         }		
 		
-        stage('DEPLOY') {
+        stage('DEPLOY TOMCAT') {
             steps {
                 echo 'In this stage .war artiface will be deployed on to tomcat '
 				deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://54.91.227.106:8081/')], contextPath: 'devops-app', war: '**/*.war'
