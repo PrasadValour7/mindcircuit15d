@@ -20,7 +20,7 @@
         stage('Deploy Tomcat') {
             steps {
                 echo 'Deploying Artifact to Tomcat webserver'
-				deploy adapters: [tomcat9(alternativeDeploymentContext: '', credentialsId: 'tomcat', path: '', url: 'http://ec2-52-201-235-232.compute-1.amazonaws.com:8081/')], contextPath: 'MCPAPP', war: '**/*.war'
+				deploy adapters: [tomcat9(alternativeDeploymentContext: '', credentialsId: 'tomcat', path: '', url: 'http://ec2-54-89-168-33.compute-1.amazonaws.com:8081/')], contextPath: 'MCPAPP', war: '**/*.war'
             }
         }
     }
